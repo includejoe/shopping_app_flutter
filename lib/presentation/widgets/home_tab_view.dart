@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shopping_app/presentation/screens/product_detail_screen.dart';
+import 'package:shopping_app/presentation/screens/products_screen.dart';
 import 'package:shopping_app/presentation/widgets/product_card.dart';
 import '../../models/sneaker.dart';
 import '../../utils/app_style.dart';
@@ -7,10 +9,12 @@ import 'latest_cards.dart';
 class HomeTabView extends StatelessWidget {
   const HomeTabView({
     super.key,
-    required Future<List<Sneaker>> sneakers
+    required Future<List<Sneaker>> sneakers,
+    required this.tabIndex
   }) : _sneakers = sneakers;
 
   final Future<List<Sneaker>> _sneakers;
+  final int tabIndex;
 
   @override
   Widget build(BuildContext context) {
@@ -32,12 +36,24 @@ class HomeTabView extends StatelessWidget {
                     itemCount: sneakers?.length,
                     itemBuilder: (context, index) {
                       final sneaker = snapshot.data![index];
-                      return ProductCard(
-                          image: sneaker.imageUrl[0],
-                          price: "\$${sneaker.price}",
-                          category: sneaker.category,
-                          id: sneaker.id,
-                          name: sneaker.name
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => ProductDetailScreen(
+                                id: sneaker.id, category: sneaker.category
+                              )
+                            )
+                          );
+                        },
+                        child: ProductCard(
+                            image: sneaker.imageUrl[0],
+                            price: "\$${sneaker.price}",
+                            category: sneaker.category,
+                            id: sneaker.id,
+                            name: sneaker.name
+                        ),
                       );
                     },
                   );
@@ -56,14 +72,24 @@ class HomeTabView extends StatelessWidget {
                     "Latest Shoes",
                     style: appStyle(24, Colors.black, FontWeight.bold),
                   ),
-                  Row(
-                    children: [
-                      Text(
-                        "Show All",
-                        style: appStyle(22, Colors.black, FontWeight.normal),
-                      ),
-                      const Icon(Icons.arrow_right, size: 30,)
-                    ],
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => ProductsScreen(tabIndex: tabIndex)
+                        )
+                      );
+                    },
+                    child: Row(
+                      children: [
+                        Text(
+                          "Show All",
+                          style: appStyle(22, Colors.black, FontWeight.normal),
+                        ),
+                        const Icon(Icons.arrow_right, size: 30,)
+                      ],
+                    ),
                   ),
                 ],
               ),

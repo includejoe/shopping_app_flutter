@@ -23,6 +23,7 @@ class ProductTabView extends StatelessWidget {
         } else {
           final sneakers = snapshot.data;
           return MasonryGridView.count(
+            padding: const EdgeInsets.only(bottom: 20),
             crossAxisCount: 2,
             crossAxisSpacing: 20,
             mainAxisSpacing: 16,

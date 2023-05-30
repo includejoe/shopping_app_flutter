@@ -2,8 +2,12 @@
   {
     "id": "0",
     "name": "Nike Jordan",
-    "category": "Men's Basketball",
-    "imageUrl": ["assets/images/sneaker1.png"],
+    "category": "Men's Sneakers",
+    "imageUrl": [
+      "assets/images/men_sneaker1.png",
+      "assets/images/men_sneaker1.png",
+      "assets/images/men_sneaker1.png"
+    ],
     "oldPrice": "299.99",
     "sizes": [
       {"size":  "6.0", "isSelected":  false},
@@ -21,8 +25,12 @@
   {
     "id": "1",
     "name": "HD Nike",
-    "category": "Men's Gym",
-    "imageUrl": ["assets/images/sneaker2.png"],
+    "category": "Men's Sneakers",
+    "imageUrl": [
+      "assets/images/men_sneaker2.png",
+      "assets/images/men_sneaker2.png",
+      "assets/images/men_sneaker2.png"
+    ],
     "oldPrice": "129.99",
     "sizes": [
       {"size":  "6.0", "isSelected":  false},
@@ -40,8 +48,12 @@
   {
     "id": "2",
     "name": "Nike Speed",
-    "category": "Men's Running",
-    "imageUrl": ["assets/images/sneaker3.png"],
+    "category": "Men's Sneakers",
+    "imageUrl": [
+      "assets/images/men_sneaker3.png",
+      "assets/images/men_sneaker3.png",
+      "assets/images/men_sneaker3.png"
+    ],
     "oldPrice": "269.99",
     "sizes": [
       {"size":  "6.0", "isSelected":  false},
@@ -58,9 +70,13 @@
   },
   {
     "id": "0",
-    "name": "Nike Jordan",
-    "category": "Men's Basketball",
-    "imageUrl": ["assets/images/sneaker1.png"],
+    "name": "Nike Air-force",
+    "category": "Men's Sneakers",
+    "imageUrl": [
+      "assets/images/men_sneaker4.png",
+      "assets/images/men_sneaker4.png",
+      "assets/images/men_sneaker4.png"
+    ],
     "oldPrice": "299.99",
     "sizes": [
       {"size":  "6.0", "isSelected":  false},
@@ -73,25 +89,6 @@
     ],
     "price": "149.99",
     "description": "Put some pep in your step with Nike Jordan",
-    "title": "Jordan Nike gym shoes with cooling ventilation"
-  },
-  {
-    "id": "1",
-    "name": "HD Nike",
-    "category": "Men's Gym",
-    "imageUrl": ["assets/images/sneaker2.png"],
-    "oldPrice": "129.99",
-    "sizes": [
-      {"size":  "6.0", "isSelected":  false},
-      {"size":  "6.5", "isSelected":  false},
-      {"size":  "7.0", "isSelected":  false},
-      {"size":  "7.5", "isSelected":  false},
-      {"size":  "8.0", "isSelected":  false},
-      {"size":  "8.5", "isSelected":  false},
-      {"size":  "9.0", "isSelected":  false}
-    ],
-    "price": "99.99",
-    "description": "Put some pep in your step with HD Nikes",
-    "title": "HD Nike gym shoes with cooling ventilation"
+    "title": "Nike Air-force gym shoes with cooling ventilation"
   }
 ]

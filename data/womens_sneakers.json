@@ -1,9 +1,13 @@
 [
   {
     "id": "0",
-    "name": "Nike Jordan",
-    "category": "Men's Basketball",
-    "imageUrl": ["assets/images/sneaker1.png"],
+    "name": "Nike Retro",
+    "category": "Women's Sneakers",
+    "imageUrl": [
+      "assets/images/women_sneaker1.png",
+      "assets/images/women_sneaker1.png",
+      "assets/images/women_sneaker1.png"
+    ],
     "oldPrice": "299.99",
     "sizes": [
       {"size":  "6.0", "isSelected":  false},
@@ -16,14 +20,18 @@
     ],
     "price": "149.99",
     "description": "Put some pep in your step with Nike Jordan",
-    "title": "Jordan Nike gym shoes with cooling ventilation"
+    "title": "Nike gym shoes with cooling ventilation"
   },
   {
     "id": "1",
-    "name": "HD Nike",
-    "category": "Men's Gym",
-    "imageUrl": ["assets/images/sneaker2.png"],
-    "oldPrice": "129.99",
+    "name": "HPV Nike",
+    "category": "Women's Sneakers",
+    "imageUrl": [
+      "assets/images/women_sneaker2.png",
+      "assets/images/women_sneaker2.png",
+      "assets/images/women_sneaker2.png"
+    ],
+    "oldPrice": "299.99",
     "sizes": [
       {"size":  "6.0", "isSelected":  false},
       {"size":  "6.5", "isSelected":  false},
@@ -33,16 +41,20 @@
       {"size":  "8.5", "isSelected":  false},
       {"size":  "9.0", "isSelected":  false}
     ],
-    "price": "99.99",
-    "description": "Put some pep in your step with HD Nikes",
-    "title": "HD Nike gym shoes with cooling ventilation"
+    "price": "149.99",
+    "description": "Put some pep in your step with Nike Jordan",
+    "title": "Nike gym shoes with cooling ventilation"
   },
   {
     "id": "2",
-    "name": "Nike Speed",
-    "category": "Men's Running",
-    "imageUrl": ["assets/images/sneaker3.png"],
-    "oldPrice": "269.99",
+    "name": "Nike Sprint",
+    "category": "Women's Sneakers",
+    "imageUrl": [
+      "assets/images/women_sneaker3.png",
+      "assets/images/women_sneaker3.png",
+      "assets/images/women_sneaker3.png"
+    ],
+    "oldPrice": "299.99",
     "sizes": [
       {"size":  "6.0", "isSelected":  false},
       {"size":  "6.5", "isSelected":  false},
@@ -52,8 +64,31 @@
       {"size":  "8.5", "isSelected":  false},
       {"size":  "9.0", "isSelected":  false}
     ],
-    "price": "199.99",
-    "description": "Put some pep in your step with Nike Speed",
-    "title": "Speed Nike gym shoes with cooling ventilation"
+    "price": "149.99",
+    "description": "Put some pep in your step with Nike Jordan",
+    "title": "Nike gym shoes with cooling ventilation"
+  },
+  {
+    "id": "3",
+    "name": "Nike Elevate",
+    "category": "Women's Sneakers",
+    "imageUrl": [
+      "assets/images/women_sneaker4.png",
+      "assets/images/women_sneaker4.png",
+      "assets/images/women_sneaker4.png"
+    ],
+    "oldPrice": "299.99",
+    "sizes": [
+      {"size":  "6.0", "isSelected":  false},
+      {"size":  "6.5", "isSelected":  false},
+      {"size":  "7.0", "isSelected":  false},
+      {"size":  "7.5", "isSelected":  false},
+      {"size":  "8.0", "isSelected":  false},
+      {"size":  "8.5", "isSelected":  false},
+      {"size":  "9.0", "isSelected":  false}
+    ],
+    "price": "149.99",
+    "description": "Put some pep in your step with Nike Jordan",
+    "title": "Nike gym shoes with cooling ventilation"
   }
 ]

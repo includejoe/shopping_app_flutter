@@ -3,18 +3,21 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:shopping_app/api/get_sneakers.dart';
 import 'package:shopping_app/models/sneaker.dart';
 import 'package:shopping_app/presentation/widgets/category_btn.dart';
+import 'package:shopping_app/presentation/widgets/filter_bottom_sheet.dart';
 import 'package:shopping_app/presentation/widgets/product_tab_view.dart';
 import 'package:shopping_app/presentation/widgets/stagger_card.dart';
 import 'package:shopping_app/utils/app_style.dart';
 
-class ProductScreen extends StatefulWidget {
-  const ProductScreen({Key? key}) : super(key: key);
+class ProductsScreen extends StatefulWidget {
+  const ProductsScreen({Key? key, required this.tabIndex}) : super(key: key);
+
+  final int tabIndex;
 
   @override
-  State<ProductScreen> createState() => _ProductScreenState();
+  State<ProductsScreen> createState() => _ProductsScreenState();
 }
 
-class _ProductScreenState extends State<ProductScreen> with TickerProviderStateMixin {
+class _ProductsScreenState extends State<ProductsScreen> with TickerProviderStateMixin {
   late final TabController _tabController = TabController(length: 2, vsync: this);
   late Future<List<Sneaker>> _maleSneakers;
   late Future<List<Sneaker>> _femaleSneakers;
@@ -109,7 +112,7 @@ class _ProductScreenState extends State<ProductScreen> with TickerProviderStateM
                       ProductTabView(sneakers: _femaleSneakers)
                     ]
                 ),
-              )
+              ),
             ],
           ),
         ),
@@ -118,86 +121,13 @@ class _ProductScreenState extends State<ProductScreen> with TickerProviderStateM
   }
 
   Future<dynamic> filter() {
+
     return showModalBottomSheet(
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
       barrierColor: Colors.white54,
-      builder: (context) => Container(
-        height: MediaQuery.of(context).size.height * 0.8,
-        width: MediaQuery.of(context).size.width,
-        decoration: const BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(25),
-            topRight: Radius.circular(25)
-          )
-        ),
-        child: Column(
-          children: [
-            const SizedBox(height: 40),
-            Container(
-              height: 5,
-              width: 40,
-              decoration: const BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(10)),
-                color: Colors.black38
-              ),
-            ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.7,
-              width: MediaQuery.of(context).size.width,
-              child: Column(
-                children: [
-                  const SizedBox(height: 25),
-                  Text("Filter", style: appStyle(40, Colors.black, FontWeight.bold),),
-                  const SizedBox(height: 25),
-                  Text("Gender", style: appStyle(20, Colors.black, FontWeight.bold),),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CategoryButton(
-                        label: "Men",
-                        btnColor: Colors.black,
-                        width: MediaQuery.of(context).size.width * 0.4,
-                      ),
-                      CategoryButton(
-                        label: "Women",
-                        btnColor: Colors.grey,
-                        width: MediaQuery.of(context).size.width * 0.4,
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 25),
-                  Text("Category", style: appStyle(20, Colors.black, FontWeight.bold),),
-                  const SizedBox(height: 20),
-                  const Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CategoryButton(
-                        label: "Sneakers",
-                        btnColor: Colors.black,
-                        width: 90,
-                      ),
-                      CategoryButton(
-                        label: "Slippers",
-                        btnColor: Colors.black,
-                        width: 90,
-                      ),
-                      CategoryButton(
-                        label: "Boots",
-                        btnColor: Colors.black,
-                        width: 90,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            )
-          ],
-        )
-      )
+      builder: (context) => const FilterBottomSheet()
     );
   }
 }
