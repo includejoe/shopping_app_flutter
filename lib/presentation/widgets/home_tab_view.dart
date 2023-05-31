@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shopping_app/presentation/screens/product_detail_screen.dart';
 import 'package:shopping_app/presentation/screens/products_screen.dart';
 import 'package:shopping_app/presentation/widgets/product_card.dart';
+import 'package:shopping_app/providers/product_provider.dart';
 import '../../models/sneaker.dart';
 import '../../utils/app_style.dart';
 import 'latest_cards.dart';
@@ -18,10 +20,12 @@ class HomeTabView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var productNotifier = Provider.of<ProductNotifier>(context);
+
     return Column(
       children: [
         SizedBox(
-            height: 300,
+            height: 320,
             child: FutureBuilder<List<Sneaker>>(
               future: _sneakers,
               builder: (context, snapshot) {
@@ -38,6 +42,7 @@ class HomeTabView extends StatelessWidget {
                       final sneaker = snapshot.data![index];
                       return GestureDetector(
                         onTap: () {
+                          productNotifier.sneakerSizes = sneaker.sizes;
                           Navigator.push(
                             context,
                             MaterialPageRoute(

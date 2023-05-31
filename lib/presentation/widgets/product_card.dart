@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:shopping_app/presentation/screens/favourites_screen.dart';
 import 'package:shopping_app/utils/app_style.dart';
+import 'package:shopping_app/utils/constants.dart';
 
 class ProductCard extends StatefulWidget {
   const ProductCard({
@@ -24,6 +27,27 @@ class ProductCard extends StatefulWidget {
 
 class _ProductCardState extends State<ProductCard> {
   bool selected = true;
+  final _favouritesBox = Hive.box("favourites_box");
+
+  Future<void> _createFavourites(Map<String, dynamic> addFav) async {
+    await _favouritesBox.add(addFav);
+    getFavourites();
+  }
+
+  getFavourites() {
+    final favData = _favouritesBox.keys.map((key) {
+      final item = _favouritesBox.get(key);
+
+      return {
+        "key": key,
+        "id": "id",
+      };
+    }).toList();
+
+    favourite = favData.toList();
+    ids = favourite.map((item) => item["id"]).toList();
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,8 +85,27 @@ class _ProductCardState extends State<ProductCard> {
                     right: 10,
                     top: 10,
                     child: GestureDetector(
-                      onTap: () {},
-                      child: const Icon(Icons.favorite_outline),
+                      onTap: () async {
+                        if(ids.contains(widget.id)) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const FavouritesScreen()
+                            )
+                          );
+                        } else {
+                          _createFavourites({
+                            "id": widget.id,
+                            "name": widget.name,
+                            "category": widget.category,
+                            "price": widget.price,
+                            "imageUrl": widget.image
+                          });
+                        }
+                      },
+                      child: ids.contains(widget.id) ?
+                      const Icon(Icons.favorite, color: Colors.red,) :
+                      const Icon(Icons.favorite_outline),
                     ),
                   )
                 ],

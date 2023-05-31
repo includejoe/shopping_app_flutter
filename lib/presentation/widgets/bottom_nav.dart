@@ -41,7 +41,7 @@ class BottomNavigation extends StatelessWidget {
                           mainScreenNotifier.screenIndex = 2;
                         },
                         icon: mainScreenNotifier.screenIndex == 2 ?
-                        Icons.add_circle_outlined : Icons.add_circle_outline
+                        Icons.favorite : Icons.favorite_outline_rounded
                     ),
                     BottomNavItem(
                         onTap: () {

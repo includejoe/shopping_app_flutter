@@ -24,7 +24,7 @@
   },
   {
     "id": "1",
-    "name": "HD Nike",
+    "name": "Nike Kobe",
     "category": "Men's Sneakers",
     "imageUrl": [
       "assets/images/men_sneaker2.png",
@@ -42,8 +42,8 @@
       {"size":  "9.0", "isSelected":  false}
     ],
     "price": "99.99",
-    "description": "Put some pep in your step with HD Nikes",
-    "title": "HD Nike gym shoes with cooling ventilation"
+    "description": "Put some pep in your step with Nike Kobe and dunk like never before! Comes in all sizes, be sure to grab one. And oh a bad ass bitch can definitely rock one",
+    "title": "Nike Kobe basketball sneakers with cooling ventilation"
   },
   {
     "id": "2",
@@ -69,7 +69,7 @@
     "title": "Speed Nike gym shoes with cooling ventilation"
   },
   {
-    "id": "0",
+    "id": "3",
     "name": "Nike Air-force",
     "category": "Men's Sneakers",
     "imageUrl": [

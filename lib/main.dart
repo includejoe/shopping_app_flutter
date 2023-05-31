@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_app/presentation/screens/cart_screen.dart';
+import 'package:shopping_app/presentation/screens/favourites_screen.dart';
 import 'package:shopping_app/presentation/screens/home_screen.dart';
 import 'package:shopping_app/presentation/screens/profile_screen.dart';
 import 'package:shopping_app/presentation/screens/search_screen.dart';
@@ -9,36 +11,40 @@ import 'package:shopping_app/presentation/widgets/bottom_nav.dart';
 import 'package:shopping_app/providers/main_screen_provider.dart';
 import 'package:shopping_app/providers/product_provider.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await Hive.initFlutter();
+  await Hive.openBox("cart_box");
+  await Hive.openBox("favourites_box");
+
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => MainScreenNotifier()),
         ChangeNotifierProvider(create: (context) => ProductNotifier())
       ],
-      child: const MyApp()
+      child: MyApp()
     )
   );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
-  final List<Widget> screenList = const [
-    HomeScreen(),
-    SearchScreen(),
-    HomeScreen(),
+  final List<Widget> screenList = [
+    const HomeScreen(),
+    const SearchScreen(),
+    const FavouritesScreen(),
     CartScreen(),
-    ProfileScreen(),
+    const ProfileScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
-    WidgetsFlutterBinding.ensureInitialized();
     SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarColor: Colors.black,
     ));
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Shopping App',
